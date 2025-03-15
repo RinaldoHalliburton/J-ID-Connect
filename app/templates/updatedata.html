@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J-ID-Connect</title>
+  </head>
+  <body>
+    <h2>Update Information</h2>
+    <h3>Change the field you wish to update</h3>
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <p>{{ form.document_type.label }} {{ form.document_type() }}</p>
+      <p>{{ form.title.label }} {{ form.title() }}</p>
+      <p>{{ form.first_name.label }} {{ form.first_name() }}</p>
+      <p>{{ form.middle_name.label }} {{ form.middle_name() }}</p>
+      <p>{{ form.last_name.label }} {{ form.last_name() }}</p>
+      <p>{{ form.married_name.label }} {{ form.married_name() }}</p>
+      <p>{{ form.DOB.label }} {{ form.DOB() }}</p>
+      <p>{{ form.submit() }}</p>
+    </form>
+  </body>
+</html>
