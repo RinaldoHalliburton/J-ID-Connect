@@ -5,6 +5,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.utils import secure_filename
 from app.models import UserProfile
 from app.form import UpdateInfoForm, LoginForm
+from .forms import UploadForm
 
 
 
