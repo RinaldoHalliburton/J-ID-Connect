@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <script src="{{ url_for('static', filename='camera.js') }}" defer></script>
+  </head>
+  <body>
+    <h2>Signup Form</h2>
+
+    <form action="/signup" method="POST" enctype="multipart/form-data">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="trn">TRN:</label>
+      <input type="text" id="trn" name="trn" required /><br />
+
+      <label for="idcard">Upload ID Card:</label>
+      <input
+        type="file"
+        id="idcard"
+        name="idcard"
+        accept="image/*"
+        required
+      /><br />
+
+      <h3>Face Scan</h3>
+      <video id="video" autoplay></video>
+      <button type="button" id="snap">Capture</button>
+      <canvas id="canvas" style="display: none"></canvas>
+      <input type="hidden" name="facescan" id="facescanInput" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
