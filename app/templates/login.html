@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" href="../static/css/login.css"/>
+    <link rel="icon" href="../static/jidlogo.png" type="image/png" class="favicon">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -14,28 +15,29 @@
    
       </head>
       <body>
+        <!--Nav Menu-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <img src="../static/jidlogo.png">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!--Collaspe Menu-->
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-item nav-link active" href="{{url_for('govAccess')}}">Gonvernment Access</a>    
               <a class="nav-item nav-link active" href="{{url_for('orgAccess')}}">Organisation Access</a>
               <a class="nav-item nav-link active" href="{{url_for('citizenAccess')}}">Citizen Access</a>
-              
             </div>
           </div>
         </nav>
-        <!--<nav> 
-            <a href="{{url_for('govAccess')}}">Gonvernment Access</a> <!--Government Access-->
-         <!--    <a href="{{url_for('orgAccess')}}">Organisation Access</a> <!--Organisation Access-->
-           <!--  <a href="{{url_for('citizenAccess')}}">Citizen Access</a> <!--Citizen Access-->
-        <!-- </nav>-->
+      
         <main>
         {% block main %}{% endblock %}
         </main>
+        <!--Bootstrap Javascript-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
      </body>
     </html>   
   

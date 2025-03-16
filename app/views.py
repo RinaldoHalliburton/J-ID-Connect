@@ -20,8 +20,8 @@ def govAccess():
 
     if request.method == 'POST' and form.validate_on_submit():
         # Grab form data
-        username = form.username.data
-        password = form.password.data
+        username = form.staffid.data
+        password = form.spassword.data
         
         # Example: Replace with your user-auth logic
         # e.g., check a real database, verify a hashed password, etc.
@@ -29,7 +29,7 @@ def govAccess():
             # Mark user as logged in
             session['logged_in'] = True
             flash('Logged in successfully!', 'success')
-            return redirect(url_for('views.dashboard'))  # Example: some protected route
+            return redirect(url_for('AdminDashboard'))  # Example: some protected route
         else:
             flash('Invalid credentials. Please try again.', 'danger')
     
@@ -41,12 +41,12 @@ def orgAccess():
 
     if request.method == 'POST' and form.validate_on_submit():
         # Grab form data
-        username = form.username.data
-        password = form.password.data
+        username = form.orgName.data
+        password = form.orgpassword.data
         
         # Example: Replace with your user-auth logic
         # e.g., check a real database, verify a hashed password, etc.
-        if username == 'admin' and password == 'secret123':
+        if username == 'TAJ' and password == 'secret123':
             # Mark user as logged in
             session['logged_in'] = True
             flash('Logged in successfully!', 'success')
@@ -62,12 +62,12 @@ def citizenAccess():
 
     if request.method == 'POST' and form.validate_on_submit():
         # Grab form data
-        username = form.username.data
-        password = form.password.data
+        username = form.trn.data
+        password = form.cpassword.data
         
         # Example: Replace with your user-auth logic
         # e.g., check a real database, verify a hashed password, etc.
-        if username == 'admin' and password == 'secret123':
+        if username == '129151785' and password == 'secret123':
             # Mark user as logged in
             session['logged_in'] = True
             flash('Logged in successfully!', 'success')
@@ -76,3 +76,7 @@ def citizenAccess():
             flash('Invalid credentials. Please try again.', 'danger')
             
     return render_template('citizenaccess.html', form=form)
+
+@app.route("/Government-Dashboard")
+def AdminDashboard():
+    return render_template('AdminDashboard.html')

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/adminDashboard.css"/>
+    <link rel="icon" href="../static/ja-coatofarms.jpg" type="image/png" class="favicon">
+</head>
+<body>
+    <header>
+        <img src="../static/jidlogo.png">
+            
+    </header>
+    <main>
+        <nav>
+            <ul class="list-items">
+                <li><img src="../static/icons/home (1).png" class="icons"><a >Home</a></li>
+                <li><img src="../static/icons/request.png" class="icons"><a>Citizen Requests</a></li>
+                <li><img src="../static/icons/request-for-approval.png" class="icons"><a>Agency Requests</a></li>
+                <li><img src="../static/icons/folder.png" class="icons"><a>Citizen Records</a></li>
+                <hr>
+                <li><img src="../static/icons/logout.png" class="icons"><a href="{{url_for('govAccess')}}">Logout</a></li>
+            </ul>
+        </nav>
+        
+        {%block main%}
+        {% endblock %}
+       
+    </main>
+</body>
+</html>
