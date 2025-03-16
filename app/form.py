@@ -35,3 +35,7 @@ class LoginForm(FlaskForm):
     trn = StringField('TRN', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log In')
+
+class TRNRequestForm(FlaskForm):
+    trn = StringField('TRN', validators=[DataRequired()])
+    submit = SubmitField('Retrieve Details')

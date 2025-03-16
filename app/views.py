@@ -86,3 +86,35 @@ def login():
                 conn.close()
 
     return render_template('login.html', form=form)
+
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if 'user_id' not in session:
+        flash('Please log in to access the dashboard.', 'danger')
+        return redirect('/login')
+
+    if request.method == 'POST':
+        trn = request.form.get('trn')  # Get TRN from form
+
+        # Fetch customer details by TRN
+        customer = Customer.query.filter_by(TRN=trn).first()
+        if customer:
+            session['TRN'] = customer.TRN
+            session['title'] = customer.title
+            session['first_name'] = customer.first_name
+            session['last_name'] = customer.last_name
+            session['maiden_name'] = customer.maiden_name
+            session['address'] = customer.address
+            session['email'] = customer.email
+            session['telephone'] = customer.telephone
+            session['maritalStatus'] = customer.marital_status
+            session['Occupation'] = customer.occupation
+            session['gender'] = customer.gender
+            session['NIS'] = customer.nis
+            flash('Customer details successfully retrieved!', 'success')
+        else:
+            flash('Customer not found. Please verify the TRN and try again.', 'danger')
+
+    return render_template('orgdashboard.html')
+
