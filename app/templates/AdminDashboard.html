@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Table</title>
+    <style>
+        /* Basic Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+
+        /* Responsive Table - Stack into a single column */
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+
+            thead {
+                display: none; /* Hide headers on small screens */
+            }
+
+            tr {
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
+
+            td {
+                text-align: left;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #3498db;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Citizen Records</th>
+                <th class="Content">{%block%}{%endblock%}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Column 1">Citizen Request</td>
+           
+            </tr>
+            <tr>
+                <td data-label="Column 1">Agency Records</td>
+      
+            </tr>
+    
+        </tbody>
+    </table>
+
+</body>
+</html>
