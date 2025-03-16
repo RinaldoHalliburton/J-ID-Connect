@@ -1,5 +1,7 @@
-from . import db
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash
+
+db = SQLAlchemy()
 
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
@@ -9,7 +11,7 @@ class UserProfile(db.Model):
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
     MaidenName = db.Column(db.String(80))
-    Address = db.Column(db.string(128))
+    Address = db.Column(db.String(128))
     Email = db.Column(db.String(80))
     DOB = db.Column(db.Date)
     Telephone = db.Column(db.Integer)
