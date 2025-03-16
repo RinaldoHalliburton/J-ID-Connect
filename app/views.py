@@ -34,3 +34,4 @@ def login():
             flash('Invalid credentials. Please try again.', 'danger')
     
     return render_template('login.html', form=form)
+
