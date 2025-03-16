@@ -1,0 +1,26 @@
+body {
+    background-image:url(static/LoginBackground.png);
+  }
+  .login-container {
+    margin-top: 170px;
+    background-color: #f8f9fa;
+  }
+  .login-container {
+    margin-top: 100px;
+    max-width: 400px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  img{
+    height: 70px;
+  }
+nav{
+  justify-content: space-evenly;
+}
+
+.login-container{
+  margin-top: 150px;
+}

@@ -2,50 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../static/css/login.css"/>
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <style>
-      body {
-        background-image:url(static/LoginBackground.png);
-      }
-      .login-container {
-        margin-top: 170px;
-        background-color: #f8f9fa;
-      }
-      .login-container {
-        margin-top: 100px;
-        max-width: 400px;
-        padding: 30px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      nav{
-        background:rgb(255, 255, 255) ;
-        height: 75px;
-        
-      }
-    </style>
+   
       </head>
       <body>
-        <nav> 
-            <a href="{{url_for(govaccess)}}">Gonvernment Access</a> <!--Government Access-->
-            <a>Organisation Access</a> <!--Organisation Access-->
-            <a>Citizen Access</a> <!--Citizen Access-->
-        </nav>
-        <div class="container d-flex justify-content-center">
-          <div class="login-container">
-            <h1 class="text-center mb-4">Login</h1>
-            <p class="text-center mb-4">Enter your login details to sign in to your account</p>
-            {%block%}
-            {%endblock%}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+          <div class="container-fluid">
+            <img src="../static/jidlogo.png">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{url_for('govAccess')}}">Gonvernment Access</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('orgAccess')}}">Organisation Access</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('citizenAccess')}}">Citizen Access</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </nav>
+        <!--<nav> 
+            <a href="{{url_for('govAccess')}}">Gonvernment Access</a> <!--Government Access-->
+         <!--    <a href="{{url_for('orgAccess')}}">Organisation Access</a> <!--Organisation Access-->
+           <!--  <a href="{{url_for('citizenAccess')}}">Citizen Access</a> <!--Citizen Access-->
+        <!-- </nav>-->
+        <main>
+        {% block main %}{% endblock %}
+        </main>
      </body>
     </html>   
   

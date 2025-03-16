@@ -1,0 +1,24 @@
+{% extends "login.html" %}
+
+{% block main %}
+<div class="container d-flex justify-content-center">
+    <div class="login-container">
+      <h1 class="text-center mb-4">Login</h1>
+      <p class="text-center mb-4">Enter your login details to sign in to your account</p>
+<form method="POST" action="{{ url_for('citizenAccess') }}">
+    {{ form.csrf_token }}
+    <div class="form-group">
+      {{ form.trn.label(class="form-label") }} 
+      {{form.trn(class="form-control", size=32) }}
+    </div>
+    <div class="form-group">
+      {{ form.cpassword.label(class="form-label") }} 
+      {{ form.cpassword(class="form-control", size=32) }}
+    </div>
+    <div class="form-group text-center">
+      {{ form.submit(class="btn btn-primary btn-block") }}
+    </div>
+  </form>
+</div>
+</div>
+{% endblock %}

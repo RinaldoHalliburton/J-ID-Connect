@@ -32,7 +32,10 @@ class UpdateInfoForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    trn = StringField('TRN', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    staffid= StringField ('Staff ID')
+    trn = StringField('TRN:', validators=[DataRequired()])
+    cpassword = PasswordField('Password:', validators=[DataRequired()])
+    staffid= StringField ('Staff ID:', validators=[InputRequired()])
+    spassword =PasswordField('Password:', validators=[InputRequired()])
+    orgName= StringField ('Organisation Name:', validators=[InputRequired()])
+    orgpassword =PasswordField('Password:', validators=[InputRequired()])
     submit = SubmitField('Log In')
