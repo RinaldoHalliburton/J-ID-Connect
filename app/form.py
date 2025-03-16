@@ -39,3 +39,4 @@ class LoginForm(FlaskForm):
     orgName= StringField ('Organisation Name:', validators=[InputRequired()])
     orgpassword =PasswordField('Password:', validators=[InputRequired()])
     submit = SubmitField('Log In')
+    signup =SubmitField('Sign Up')

@@ -1,5 +1,6 @@
 body {
-    background-image:url(static/LoginBackground.png);
+    background-image:url(../Loginbackground.jpg);
+    background-repeat: no-repeat;
   }
   .login-container {
     margin-top: 170px;
@@ -15,12 +16,43 @@ body {
   }
   
   img{
-    height: 70px;
+    height: 60px;
   }
 nav{
   justify-content: space-evenly;
+  background-color: #fff;
+  color: black;
 }
 
 .login-container{
-  margin-top: 150px;
+  margin-top: 110px;
+}
+
+a{
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-top: 10px;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.navbar-nav{
+  margin-left: 590px;
+}
+
+#submit{
+  background-color: #09A865;
+  border-color: #09A865;
+  width: 140px ;
+}
+
+#signup{
+  background-color: #fff;
+  color: #09A865;
+  border-color: #09A865;
+  width: 87px;
+}
+
+.nav-link:hover{
+  color: #09A865;
 }

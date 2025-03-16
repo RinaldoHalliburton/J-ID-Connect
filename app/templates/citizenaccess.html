@@ -3,7 +3,7 @@
 {% block main %}
 <div class="container d-flex justify-content-center">
     <div class="login-container">
-      <h1 class="text-center mb-4">Login</h1>
+      <h1 class="text-center mb-4"> Citizen Login</h1>
       <p class="text-center mb-4">Enter your login details to sign in to your account</p>
 <form method="POST" action="{{ url_for('citizenAccess') }}">
     {{ form.csrf_token }}
@@ -15,8 +15,13 @@
       {{ form.cpassword.label(class="form-label") }} 
       {{ form.cpassword(class="form-control", size=32) }}
     </div>
-    <div class="form-group text-center">
-      {{ form.submit(class="btn btn-primary btn-block") }}
+    <div class="form-group text-center d-flex justify-content-center">
+      <div class="mr-2">
+        {{ form.signup(class="btn btn-primary") }}
+      </div>
+      <div>
+        {{ form.submit(class="btn btn-secondary") }}
+      </div>
     </div>
   </form>
 </div>
