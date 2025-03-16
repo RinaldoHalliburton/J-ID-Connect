@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 60px;
+      }
+      .dashboard-header {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <!-- Add more navigation items as needed -->
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div
+        class="alert alert-{{ category }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+          <span>&times;</span>
+        </button>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <div class="dashboard-header">
+        <h1>Welcome, {{ session['first_name'] }}!</h1>
+        <p>
+          This is your dashboard. Here you can manage your account, request
+          changes, and more.
+        </p>
+      </div>
+
+      <div class="row">
+        <!-- Example Widget -->
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-header">Profile Info</div>
+            <div class="card-body">
+              <p>
+                Name: {{ session['title'] }} {{ session['first_name'] }} {{
+                session['last_name'] }}
+              </p>
+              <p>Email: {{session['email']}}</p>
+              <p>Telephone: {{session['telephone']}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Another Example Widget -->
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-header">Recent Activity</div>
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li>Logged in: {{session['current_time'] }}</li>
+                <li>Viewed dashboard</li>
+                {% if session.get('updated_profile') %}
+                <li>Updated profile</li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Additional Widget -->
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-header">Settings</div>
+            <div class="card-body">
+              <a
+                href="{{ url_for('updatedata') }}"
+                class="btn btn-primary btn-block"
+                >Update credentials</a
+              >
+
+              <a href="/change-password" class="btn btn-secondary btn-block"
+                >Change Password</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
